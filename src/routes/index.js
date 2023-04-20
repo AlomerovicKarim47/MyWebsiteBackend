@@ -41,12 +41,14 @@ routes.post("/email", (req, res) => {
     }
     transporter.sendMail(mail, (err) => {
         if (err){
+            console.log(err)
             res.status(500)
             res.end()
         }else{
             console.log("Email sent.")
             transporter.sendMail(autoReply, (err) => {
                 if (err){
+                    console.log(err)
                     res.status(500)
                     res.end()
                 }
